@@ -9,4 +9,20 @@ Alternately, you can use the `deb` command in your `.worker` file to install dep
 
 This project makes it simple. It runs a worker on Iron Worker, and spits out a list of dependencies needed.
 
-## Installation
+## Usage
+1) Clone this repo.
+
+```bash
+git clone https://github.com/johntitus/IronWorkerDebFinder.git
+```
+
+2) Modify the `iron.json` file to have your `token` and `project_id`.
+
+3) Upload the worker to Iron Worker.
+
+```bash
+iron_worker upload depfinder
+```
+
+4) Queue a task for the worker in the Iron Worker GUI.
+
