@@ -5,9 +5,9 @@ This project figures out what dependencies your libraries need to run on Iron Wo
 
 Iron Worker, from [Iron.io](http://http://www.iron.io/), "runs tasks in the background, in parallel, at massive scale."  Your worker may need libraries that are not installed by default in the Iron Worker environment. Unfortunately, you can't use `sudo apt-get` during your worker build process, because your build process won't have access to `sudo`.
 
-Alternately, you can use the `deb` command in your `.worker` file to install dependencies. However, .deb files don't handle dependencies. You're on your own for figuring out which dependencies are needed. And figuring that out can be incredibly painful.
+Alternately, you can use the `deb` command in your `.worker` file to install dependencies. However, .deb files don't handle dependencies. You're on your own to figure out which dependencies are needed. And figuring that out can be incredibly painful.
 
-This project makes it simple. It runs a worker on Iron Worker, and spits out a list of dependencies needed.
+This project makes it simple. It runs a worker on Iron Worker, and spits out a list of dependencies needed for your libraries.
 
 ## Usage
 1) Clone this repo.
@@ -26,15 +26,15 @@ iron_worker upload depfinder
 
 4) Queue a task for the worker in the Iron Worker GUI.
 
-Log into Iron.io and select your Project workers.
+- Log into Iron.io and select your Project workers.
 
-Click on the `depfinder` worker.
+- Click on the `depfinder` worker.
 
-Click the `Queue a Task` button.
+- Click the `Queue a Task` button. A modal window will open up.
 
-In the `Payload` area, put in the name of the libraries you need to use. For example, `libphash0-dev cimg-dev`.
+- In the `Payload` area of the modal window, put in the name of the libraries you need to use. For example, `libphash0-dev cimg-dev`.
 
-Click `Queue Task`
+- Click `Queue Task`
 
 5) Read the Task Log to get a list of the dependencies needed.
 
@@ -48,4 +48,4 @@ http://us.archive.ubuntu.com/ubuntu/pool/universe/m/mpg123/libmpg123-0_1.15.3-1u
 http://us.archive.ubuntu.com/ubuntu/pool/universe/c/cimg/cimg-dev_1.4.9-2build2_all.deb
 ```
 
-Turn each of those dependencies into a `deb` line in your real worker's `.worker` file, and you should be good to go~
+Turn each of those dependencies into a `deb` line in your real worker's `.worker` file, and you should be good to go!
