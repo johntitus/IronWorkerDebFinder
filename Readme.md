@@ -49,3 +49,7 @@ http://us.archive.ubuntu.com/ubuntu/pool/universe/c/cimg/cimg-dev_1.4.9-2build2_
 ```
 
 Turn each of those dependencies into a `deb` line in your real worker's `.worker` file, and you should be good to go!
+
+## Important Note
+
+The depfinder worker runs in the `ffmpeg-2.3` stack inside of Iron Worker. If you're using a different stack, be sure to modify the `depfinder.worker` to use whichever stack your worker will be running in.
